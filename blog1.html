@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Asset Management | Lucas Shuo Han</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            background: #f9f9f9;
+            color: #333;
+        }
+
+        /* Navigation - Dark for contrast */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(12px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-brand {
+            font-weight: 500;
+            font-size: 1.2rem;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 7rem 5% 4rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #333;
+        }
+
+        .back-link::before {
+            content: '←';
+        }
+
+        .blog-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .blog-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-divider {
+            text-align: center;
+            color: #999;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .blog-meta {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .content-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .content-section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #222;
+        }
+
+        .content-section h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+            color: #333;
+        }
+
+        .content-section p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 1rem;
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 0.75rem 0 1rem 1.5rem;
+        }
+
+        .content-section li {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 0.5rem;
+        }
+
+        .content-section strong {
+            color: #222;
+            font-weight: 600;
+        }
+
+        blockquote {
+            border-left: 3px solid #ccc;
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        .closing-quote {
+            text-align: center;
+            font-style: italic;
+            color: #666;
+            margin: 2rem 0;
+            font-size: 1.1rem;
+        }
+
+        .attribution {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 2rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                margin-top: 0.5rem;
+            }
+
+            .main-content {
+                padding: 6rem 1rem 2rem;
+            }
+
+            .blog-title {
+                font-size: 1.7rem;
+            }
+
+            .content-section h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">Lucas Han</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="research.html">Exploration</a></li>
+            <li><a href="#">Resume</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <a href="blog.html" class="back-link">Back to Blog</a>
+        
+        <header class="blog-header" data-aos="fade-up">
+            <h1 class="blog-title">Knowledge Asset Management</h1>
+            <p class="blog-subtitle">A Financial Framework for Time and Learning</p>
+            <p class="blog-divider">•</p>
+            <p class="blog-meta">For students and early-career professionals navigating the age of AI and infinite information</p>
+        </header>
+
+        <article data-aos="fade-up" data-aos-delay="100">
+            <div class="content-section">
+                <h2>Opening: The Course Selection Dilemma</h2>
+                <p>It is that time of the semester again. The course registration portal opens in three hours. You have seventeen tabs open: course descriptions, RateMyProfessors threads, Reddit posts from three years ago, and a spreadsheet you started at 2 AM last night. Your friend swears by the "easy A" economics elective. Your advisor suggests the rigorous theoretical statistics course. A LinkedIn influencer insists that data science skills are the only path to employability. And somewhere in the back of your mind, a quiet voice whispers: What do I actually want to learn?</p>
+                <p>This scene plays out millions of times every year across campuses worldwide. The anxiety is real, but the framework for resolving it is often absent. Most students navigate these decisions through a fog of conflicting advice, social pressure, and vague intuitions about what might be "useful someday."</p>
+
+                <h3>Disrupting the Myths</h3>
+                <p>Before constructing a better framework, it is necessary to clear away some common illusions:</p>
+                <ol>
+                    <li><strong>Follow your passion (without calculation)</strong>: Passion is not a strategy. It is an input. Treating it as the sole decision criterion ignores opportunity costs and market realities.</li>
+                    <li><strong>Everything will be useful someday</strong>: This is the sunk cost fallacy in disguise. Knowledge depreciates. Skills become obsolete. "Someday" rarely comes.</li>
+                    <li><strong>Busy equals productive</strong>: Activity is not output. Hours spent do not automatically convert to value created.</li>
+                </ol>
+
+                <h3>The Core Question</h3>
+                <p>Here is the reframing: Your time is not merely a resource to be "managed" in the sense of scheduling and efficiency. It is capital. Capital seeks returns. Capital faces trade-offs. Capital requires allocation discipline.</p>
+                <blockquote>Where is your time capital actually invested? And what is the opportunity cost of every hour you spend?</blockquote>
+                <p>This post introduces a financial asset management framework applied to personal knowledge development. The goal is not to reduce education to pure instrumentalism, but to make the trade-offs visible so that genuine interests and deeper learning can enter the decision-making process rationally.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Asset Identification: Auditing Your 24 Hours</h2>
+                <p>The first step in any asset management process is knowing what you own. For time capital, this means conducting a brutally honest audit of your 24 hours.</p>
+
+                <h3>Core Assets</h3>
+                <p>These are your high-energy, uninterrupted blocks of time when cognitive performance peaks. For most people, this occurs in the morning hours before the accumulated fatigue and distractions of the day set in. Research consistently shows that complex analytical tasks, creative work, and deep learning are best performed during these windows.</p>
+                <p>From an AI perspective: AI does not experience circadian rhythms or cognitive fatigue. It processes at constant speed regardless of time of day. This is precisely why humans must protect their high-performance windows—they represent a comparative advantage that machines cannot replicate.</p>
+
+                <h3>Non-Performing Assets</h3>
+                <p>These are the time sinks that consume hours without generating meaningful returns: mandatory attendance at lectures where the professor reads PowerPoint slides, commute time without productive use, social obligations maintained out of inertia rather than genuine connection, and the infinite scroll of algorithmic feeds designed to capture attention.</p>
+                <p>The AI comparison is instructive here. AI does not get distracted by social media. It does not attend meetings out of politeness. It does not experience FOMO. These are distinctly human vulnerabilities—and recognizing them is the first step toward mitigating their impact on your portfolio.</p>
+
+                <h3>Cash Equivalents</h3>
+                <p>Fragmented time—the fifteen minutes between classes, the commute, the waiting room—can be converted into value if approached strategically. These are not suitable for deep work, but they can accommodate spaced repetition flashcards, audiobooks, or processing administrative tasks.</p>
+                <p>AI excels at processing fragmented inputs and maintaining consistent performance across micro-tasks. Humans attempting to compete here are fighting a losing battle. The strategic response is to either automate these tasks entirely or batch them into dedicated low-energy time blocks.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Asset Allocation: Building Your Portfolio</h2>
+                <p>Once assets are identified, the next step is strategic allocation based on your "life valuation model"—your goals, constraints, and risk tolerance.</p>
+
+                <h3>Fixed Income: GPA and Credential Courses</h3>
+                <p>Approximately 60% of your academic portfolio should be allocated to stable, predictable returns: courses that reliably contribute to your GPA, required prerequisites for your degree, and credentials that gatekeep opportunities you want to access. These are not exciting investments, but they provide the baseline stability that enables risk-taking elsewhere.</p>
+                <p>Xu Gao, in his address to new students at Peking University's National School of Development, emphasized a crucial insight: the undergraduate years are a unique window where the cost of failure is artificially suppressed. You can explore, fail, and recover in ways that become exponentially more expensive later in life. This observation supports a strategic approach to fixed income allocation—secure the baseline, then experiment. (Source: <a href="https://www.nsd.pku.edu.cn/sylm/xw/254731.htm" style="color: #444; text-decoration: underline;">https://www.nsd.pku.edu.cn/sylm/xsjl/258692.htm</a>)</p>
+
+                <h3>Growth Investments: Skill Building</h3>
+                <p>Approximately 30% should target skills with asymmetric upside: learning to code, developing research methodology, building domain expertise in emerging fields, cultivating communication and leadership capabilities. These investments carry higher variance but also higher potential returns.</p>
+                <p>The AI dimension: Growth investments should focus on skills where humans maintain comparative advantage. AI can generate code, but it cannot yet architect complex systems with full contextual understanding. AI can write prose, but it cannot yet exercise nuanced judgment about what should be said. AI can analyze data, but it cannot yet formulate the questions worth asking. These gaps define your growth investment targets.</p>
+
+                <h3>Options: Exploration and Experimentation</h3>
+                <p>Reserve approximately 10% for pure exploration—courses outside your major, projects with uncertain outcomes, conversations with people in completely different fields. These are call options on future possibilities. Most will expire worthless. A few may transform your trajectory.</p>
+                <p>AI is remarkably poor at genuine exploration. It can interpolate within known distributions but struggles to imagine genuinely novel combinations. Human creativity—the ability to see connections across domains, to question assumptions, to pursue curiosity without immediate utility—remains a durable advantage.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Risk Control and Stop-Loss</h2>
+                <p>No investment strategy is complete without risk management. The same applies to your time portfolio.</p>
+
+                <h3>Setting Stop-Loss Lines</h3>
+                <p>Define in advance the conditions under which you will exit an investment. For a course: If attendance drops below 70%, if the first assignment returns a grade two standard deviations below your target, if the professor's teaching style is incompatible with your learning—these are signals to consider withdrawal. The drop deadline is your last chance to execute a stop-loss.</p>
+                <p>The psychological trap is sunk cost bias: having invested time, you feel compelled to continue even when the expected return has turned negative. Professional traders do not fall for this. Neither should you.</p>
+
+                <h3>Black Swan Events</h3>
+                <p>Identify low-probability, high-impact risks: professor leaves mid-semester, course content changes dramatically, your personal circumstances shift unexpectedly. Maintain liquidity in your schedule—do not max out your credit load every term. Keep reserves for the unexpected.</p>
+
+                <h3>Liquidity Management</h3>
+                <p>The most common failure mode is overcommitment: five challenging courses, three extracurriculars, an internship, and a social life. This is the equivalent of investing with maximum leverage. When any single position moves against you, the entire portfolio faces liquidation.</p>
+                <p>AI does not face liquidity constraints. It can parallel-process indefinitely. Humans cannot. Respect this biological constraint. Build margin into your schedule.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Post-Investment Management</h2>
+                <p>Acquiring knowledge is only the beginning. Maintenance is required.</p>
+
+                <h3>Depreciation: The 25% Rule</h3>
+                <p>Knowledge decays. Studies suggest that without reinforcement, learned material loses approximately 25% of its accessibility per year. This is not merely forgetting—it is depreciation of a capital asset. Your accounting must reflect this reality.</p>
+                <p>The strategic response is spaced repetition and deliberate practice. But here is the AI insight: AI has perfect recall. It does not depreciate. Competing on memory is a losing strategy. Instead, focus on building frameworks, mental models, and conceptual understanding that can be reconstructed even when specific details fade.</p>
+
+                <h3>Weekly Rebalancing</h3>
+                <p>Every week, conduct a brief portfolio review: What consumed your time? What returns did it generate? Is your allocation still aligned with your goals? This discipline prevents drift and keeps you intentional.</p>
+
+                <h3>Tracking Net Value</h3>
+                <p>Develop metrics for your knowledge portfolio: skills acquired, projects completed, relationships deepened, insights generated. These are your balance sheet items. Track them. The exercise of measurement itself creates accountability.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Exit Strategy: Packaging Your Value</h2>
+                <p>Eventually, you must convert your accumulated assets into opportunities. This requires packaging.</p>
+
+                <h3>The IPO-Ready Resume</h3>
+                <p>Think of your resume as a prospectus for investors (employers, graduate programs, collaborators). It must tell a coherent story about what you have built, why it matters, and what returns you can generate for them. Each bullet point is a claim about value creation. Back it with evidence.</p>
+                <p>AI can generate a resume. It cannot generate the experiences that make a resume compelling. The strategic insight: focus on doing things worth describing, not on describing things you have done.</p>
+
+                <h3>The M&A Portfolio</h3>
+                <p>For project-based fields, maintain a portfolio demonstrating range and depth. Each project should showcase different capabilities. The collection should tell a story about your evolution and trajectory.</p>
+
+                <h3>Personal Brand as Dividend Stream</h3>
+                <p>In the long run, your reputation becomes a self-sustaining asset. Invest in it early: share what you learn, help others, build trust. The returns compound over decades.</p>
+                <p>Trust is perhaps the most durable human comparative advantage. AI can simulate helpfulness, but it cannot genuinely care. It cannot build authentic relationships. It cannot develop a reputation over years of consistent behavior. These are the assets that will matter most in an AI-augmented world.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Closing: AI and the Human Advantage</h2>
+                <p>Throughout this framework, a parallel thread has run: the comparison between human and AI capabilities. This is not incidental. It is central to strategic thinking about knowledge development in the coming decades.</p>
+
+                <h3>The Logic of Complementarity</h3>
+                <p>The fundamental principle is simple: leverage complementarity, avoid substitution. Do not compete with AI where it is already superior. Do cultivate the capabilities where humans maintain durable advantages.</p>
+                <p>What are these advantages? Creativity that transcends training distributions. Judgment that weighs values AI cannot evaluate. Trust that emerges from authentic relationship. Embodied experience that grounds abstract knowledge. These are not inefficiencies to be eliminated. They are the core of what makes human knowledge valuable.</p>
+
+                <h3>Reframing the Mission</h3>
+                <p>The goal of education, then, is not to accumulate the most facts or credentials. It is to develop the capabilities that will be most valuable in a world where routine cognitive work is increasingly automated. This means:</p>
+                <ol>
+                    <li><strong>Thinking in systems</strong>: Not just solving problems, but understanding which problems matter and why.</li>
+                    <li><strong>Exercising judgment</strong>: Making decisions under uncertainty with incomplete information.</li>
+                    <li><strong>Creating meaning</strong>: Connecting disparate ideas, telling compelling stories, inspiring action.</li>
+                    <li><strong>Building trust</strong>: Developing relationships and reputations that enable collaboration.</li>
+                </ol>
+
+                <h3>An Open Invitation</h3>
+                <p>This framework is offered as a starting point, not a final answer. The goal is to provoke thinking about how time and knowledge can be managed with greater intentionality.</p>
+                <blockquote>If any part of this post sparks an idea—whether you refine the framework, challenge it, or use it to explore bigger questions like "how AI can empower human capital" or "making education more human"—that is wonderful. The invitation is open: build upon it, modify it, critique it. The best ideas evolve through iteration and collective refinement.</blockquote>
+                <p>The future belongs to those who think clearly about what they are building and why. Time is your only non-renewable resource. Knowledge is your most portable asset. Invest wisely.</p>
+            </div>
+
+            <div class="closing-quote">
+                "Time is your only non-renewable resource.<br>
+                Knowledge is your most portable asset."
+            </div>
+
+            <div class="attribution">
+                Framework inspired by Xu Gao's address to NSD students<br>
+                Peking University National School of Development
+            </div>
+        </article>
+    </main>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+            easing: 'ease-out-cubic'
+        });
+    </script>
+</body>
+</html>

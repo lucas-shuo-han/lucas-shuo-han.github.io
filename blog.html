@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Lucas Shuo Han</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        /* Navigation - Dark for contrast */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(12px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-brand {
+            font-weight: 500;
+            font-size: 1.2rem;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 7rem 5% 4rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            color: #222;
+        }
+
+        /* Blog List */
+        .blog-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .blog-item {
+            background: #fff;
+            border-radius: 12px;
+            padding: 1.75rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .blog-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-date {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .blog-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 0.75rem;
+            transition: color 0.3s ease;
+        }
+
+        .blog-item:hover .blog-title {
+            color: #444;
+        }
+
+        .blog-excerpt {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: #444;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-top: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .read-more::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+
+        .blog-item:hover .read-more::after {
+            transform: translateX(4px);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                margin-top: 0.5rem;
+            }
+
+            .main-content {
+                padding: 6rem 1rem 2rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .blog-item {
+                padding: 1.25rem;
+            }
+
+            .blog-title {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">Lucas Han</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="research.html">Exploration</a></li>
+            <li><a href="#">Resume</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h1 class="page-title" data-aos="fade-up">Blog</h1>
+        
+        <div class="blog-list">
+            <a href="blog1.html" class="blog-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="blog-meta">
+                    <span class="blog-date">March 2025</span>
+                </div>
+                <h2 class="blog-title">Knowledge Asset Management</h2>
+                <p class="blog-excerpt">
+                    A Financial Framework for Time and Learning. For students and early-career professionals navigating the age of AI and infinite information. This post introduces a financial asset management framework applied to personal knowledge development, making trade-offs visible so that genuine interests and deeper learning can enter the decision-making process rationally.
+                </p>
+                <span class="read-more">Read more</span>
+            </a>
+
+            <a href="blog2.html" class="blog-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="blog-meta">
+                    <span class="blog-date">March 2025</span>
+                </div>
+                <h2 class="blog-title">Less Painful Math</h2>
+                <p class="blog-excerpt">
+                    Many of us have experienced the peculiar sensation of studying advanced mathematics for months, only to later realize that measure theory is essentially a formalized version of the Venn diagrams we encountered in high school. This post explores how traditional math education often gets it wrong—and how we can rebuild the bridge between abstract and concrete understanding.
+                </p>
+                <span class="read-more">Read more</span>
+            </a>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+            easing: 'ease-out-cubic'
+        });
+    </script>
+</body>
+</html>

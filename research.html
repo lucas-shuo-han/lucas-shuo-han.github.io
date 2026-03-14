@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploration | Lucas Shuo Han</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(12px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-brand {
+            font-weight: 500;
+            font-size: 1.2rem;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 7rem 5% 4rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            color: #fff;
+        }
+
+        /* Glass Card */
+        .glass-card {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .research-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        .research-content {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .research-content p {
+            margin-bottom: 1rem;
+        }
+
+        .research-content strong {
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                margin-top: 0.5rem;
+            }
+
+            .main-content {
+                padding: 6rem 1rem 2rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .glass-card {
+                padding: 1.5rem;
+            }
+
+            .research-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">Lucas Han</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="research.html">Exploration</a></li>
+            <li><a href="#">Resume</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h1 class="page-title" data-aos="fade-up">Exploration</h1>
+        
+        <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
+            <h2 class="research-title">Exploration</h2>
+            <div class="research-content">
+                <p>Extreme weather creates a tension between delivery workers' willingness to work and the platform's capacity targets. Stations often resort to mandatory dispatch to meet KPIs, but workers have heterogeneous preferences—some prioritize long-term sustainability over short-term earnings, while others are willing to brave harsh conditions for premium pay. A one-size-fits-all approach neither respects the former nor effectively incentivizes the latter.</p>
+                <p>The underlying challenge is that platforms cannot observe workers' true reservation prices. The costs of physical strain, accident risk, and customer pressure during extreme weather are difficult to monetize, leaving algorithms unable to determine what subsidy would make a specific worker voluntarily log on. This information gap forces platforms to translate vague capacity goals into rigid station-level KPIs, leaving station managers to fill the gap through discretionary measures.</p>
+                <p>Our study examines workers' decision-making at the individual level, using empirical methods to estimate how subsidy levels affect their likelihood of working. The findings may inform better incentive design and algorithmic adjustments, while speaking to broader questions about labor supply in the gig economy.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+            easing: 'ease-out-cubic'
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desktop Intelligent Micro-Ecosystem | Lucas Shuo Han</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(12px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-brand {
+            font-weight: 500;
+            font-size: 1.2rem;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        /* Hero Section with Fixed Background */
+        .hero {
+            min-height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                              url('background1.jpg');
+            background-position: center 30%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;  /* 关键：背景固定 */
+            display: flex;
+            align-items: center;
+            padding: 6rem 5% 2rem;
+        }
+
+        /* Glass Card */
+        .glass-card {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 2.5rem;
+            max-width: 800px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: #fff;
+        }
+
+        .content-section {
+            margin-bottom: 2rem;
+        }
+
+        .content-section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .content-section h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 1.5rem 0 0.75rem;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .content-section h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 1rem 0 0.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .content-section p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 1rem;
+        }
+
+        .content-section ul {
+            margin: 0.75rem 0 1rem 1.5rem;
+        }
+
+        .content-section li {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 0.5rem;
+        }
+
+        .content-section strong {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #fff;
+        }
+
+        .back-link::before {
+            content: '←';
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                margin-top: 0.5rem;
+            }
+
+            .hero {
+                padding: 5rem 1rem 2rem;
+            }
+
+            .glass-card {
+                padding: 1.5rem;
+                max-width: 100%;
+            }
+
+            .project-title {
+                font-size: 1.6rem;
+            }
+
+            .content-section h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">Lucas Han</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="research.html">Exploration</a></li>
+            <li><a href="#">Resume</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="glass-card" data-aos="fade-up" data-aos-duration="800">
+            <a href="projects.html" class="back-link">Back to Projects</a>
+            
+            <h1 class="project-title">Desktop Intelligent Micro-Ecosystem</h1>
+
+            <div class="content-section">
+                <h2>The Vision</h2>
+                <p>We wanted to create something that would bring a piece of living nature onto a desk—something more than just a decorative plant pot. The idea was to build a self-sustaining micro-ecosystem that could actually improve the indoor environment while requiring minimal daily attention.</p>
+                <p>Our vision was a compact system that combined three functions in one: humidifying dry indoor air, providing a home for a small turtle, and purifying the air through carefully selected plants. We imagined a device that would maintain itself automatically, responding to environmental conditions without constant human intervention. The project also embodied our commitment to green development—using recyclable materials, selecting native-compatible species, and designing for long-term sustainability rather than disposable consumption.</p>
+                <p>What we set out to build was not just a product, but a living system that could sit on a desk and quietly take care of itself.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>The Design</h2>
+                
+                <h3>Container</h3>
+                <p>The container is built from 5mm acrylic panels, chosen for their excellent light transmission and durability. The structure is divided into three functional zones:</p>
+                <ul>
+                    <li><strong>Water Tank</strong>: 225mm × 135mm × 195mm, providing the reservoir for humidification and serving as the base for the entire system.</li>
+                    <li><strong>Vegetation Zone</strong>: Supports both vertical and horizontal planting areas, with the vertical surface designed to prevent plant detachment while maximizing visual interest.</li>
+                    <li><strong>Water Area</strong>: A detachable 200mm × 120mm × 50mm pool that can be removed independently for water changes, keeping maintenance practical.</li>
+                </ul>
+                <p>The top lid uses a two-part hinge design, allowing users to open either section for watering or water changes without disturbing the entire setup. All joints are sealed with aquarium-grade silicone and acrylic solvent for watertight integrity.</p>
+
+                <h3>Biology</h3>
+                <p><strong>Growing Media</strong>:</p>
+                <ul>
+                    <li><strong>Vertical surface</strong>: Clay wall soil at 30mm thickness, formulated to adhere to vertical surfaces while supporting root growth.</li>
+                    <li><strong>Horizontal bed</strong>: Layered substrate consisting of vermiculite (20mm) for drainage and nutrients, sphagnum moss (10mm) to prevent root rot, and akadama (30mm) as the top growing layer.</li>
+                </ul>
+
+                <p><strong>Plant Species</strong>:</p>
+                <ul>
+                    <li><strong>Moss</strong>: Small gray moss (<em>Bryum argenteum</em>) for moisture retention and visual texture.</li>
+                    <li><strong>Carnivorous plants</strong>: Venus flytrap (<em>Dionaea muscipula</em>), pitcher plant (<em>Nepenthes</em>), and sundew (<em>Drosera</em>)—selected for their air-purifying properties and ability to control flying insects.</li>
+                    <li><strong>Ferns</strong>: Paw fern (<em>Drynaria</em>) and maidenhair fern (<em>Adiantum</em>), both shade-loving and humidity-tolerant.</li>
+                    <li><strong>Accent plants</strong>: Nerve plant (<em>Fittonia</em>), podocarpus (<em>Podocarpus macrophyllus</em>), and air plants (<em>Tillandsia</em> varieties including Yellow Flower, Rubra, and Intermedia).</li>
+                </ul>
+
+                <p><strong>Turtle Hideout</strong>: A 100mm × 100mm × 50mm shelter 3D-printed from PLA bioplastic, providing a resting and light-shielded space that matches the turtle's size and behavioral needs.</p>
+
+                <h3>Intelligence</h3>
+                <p><strong>Hardware Components</strong>:</p>
+                <ul>
+                    <li><strong>Power</strong>: BD18650-1S-2P lithium battery pack (2400mAh, 5V constant output, 70×38×20mm) with USB-C charging and XH2.54 connectors.</li>
+                    <li><strong>Sensing</strong>: DHT11 temperature and humidity module (range: 0–50°C, 20–95% RH).</li>
+                    <li><strong>Control</strong>: askpro voice recognition module with GPIO interface, supporting Mandarin Chinese commands; 2-channel relay module (3.3V control, 5A switching capacity).</li>
+                    <li><strong>Actuators</strong>:
+                        <ul>
+                            <li>Ultrasonic humidifier (DC 5V, 300mA, 1.5–2W, 108kHz±2kHz resonant frequency, 4–5μm droplet size).</li>
+                            <li>LED grow light (5V, full spectrum 400–700nm).</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <p><strong>Automatic Control Logic</strong>: The DHT11 sensor monitors ambient humidity in real time. When humidity drops below 40% RH, the relay activates the humidifier. The system maintains a hysteresis band: the humidifier runs until humidity reaches 60% RH, then switches off. This prevents rapid cycling and maintains stable conditions.</p>
+
+                <p><strong>Voice Commands</strong>: The askpro module recognizes Mandarin phrases: "加湿" (start humidifying), "关闭加湿器" (turn off humidifier), "开灯" (turn on light), and "关灯" (turn off light). Commands are processed locally and executed through the relay module within seconds.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>My Role: Bringing It to Life</h2>
+
+                <h3>Hardware Selection & Integration</h3>
+                <p>I was responsible for selecting and integrating the control system components. I chose the DHT11 for its proven reliability and low cost—it is widely documented and sufficiently accurate for maintaining general humidity ranges. For voice control, I selected the askpro module specifically because it supports Mandarin Chinese out of the box, which was essential for our target users.</p>
+                <p>I wired the system with the DHT11 connected to the microcontroller's digital pins for data acquisition, the askpro module interfaced through GPIO for command input, and the relay module controlling both the humidifier and LED light. I arranged the layout to keep high-voltage switching (relay outputs) physically separated from the low-voltage logic and sensor lines. The power module was positioned to allow USB-C access without disassembling the enclosure, and I ensured all connections used standard JST and DuPont connectors for serviceability.</p>
+
+                <h3>Programming the Logic</h3>
+                <p>I wrote the firmware that ties the hardware together. The code implements three core functions: real-time sensor polling, humidity threshold control with hysteresis, and voice command parsing.</p>
+                <p>The humidity control loop reads the DHT11 every two seconds. When the reading falls below 40% RH, it sets a flag to activate the humidifier relay. The humidifier continues running until the sensor reports humidity above 60% RH, at which point the relay opens. This 20-percentage-point dead band prevents the system from rapidly switching on and off around a single threshold, which would stress both the hardware and the biological components.</p>
+                <p>For voice control, I mapped the askpro module's output codes to specific relay actions. When the module detects "加湿," the code checks the current humidity and activates the humidifier relay if needed. The "开灯" and "关灯" commands toggle the LED relay directly. All actions include a brief delay to prevent command flooding.</p>
+
+                <h3>Debugging & Optimization</h3>
+                <p>During initial testing, I encountered a significant issue: the humidifier's mist was being drawn directly into the DHT11 sensor housing, causing erratic readings and false triggers. The sensor would report humidity spikes far above actual ambient levels, causing the control loop to shut off the humidifier prematurely.</p>
+                <p>I solved this through a combination of physical repositioning and software filtering. First, I relocated the sensor to the opposite side of the vegetation zone, placing it behind a small acrylic baffle that blocked direct mist flow while allowing air circulation. Second, I implemented a software debounce routine that requires three consecutive readings outside the threshold before changing the relay state. This filtered out transient spikes caused by occasional mist contact.</p>
+                <p>After these changes, the system maintained stable humidity control within the target range, with the humidifier running in predictable cycles rather than erratic bursts.</p>
+
+                <h3>How My Work Enabled the Team</h3>
+                <p>My work on the control system transformed the team's vision of an "intelligent" ecosystem from concept to functioning reality. The automatic humidity control meant that users would not need to monitor and adjust the system manually—the device could maintain conditions suitable for both the moisture-loving ferns and the turtle's environment. The voice control feature added the interactive element we had envisioned, allowing users to engage with the system naturally rather than through switches or apps.</p>
+                <p>By delivering a reliable control foundation, I enabled the team to focus on the biological and aesthetic aspects with confidence that the technical infrastructure would support their work. The system performed as designed during integration testing, maintaining stable conditions while responding to voice commands consistently.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Outcome</h2>
+                <p>The system successfully achieved the core objectives we set out to accomplish. Automatic humidification maintains ambient humidity within the 40–60% RH range, creating suitable conditions for the shade-loving ferns and moss. Voice control responds to Mandarin commands for humidifier and light operation, as demonstrated in our project video showing "turn on light" and "start humidifying" commands being recognized and executed.</p>
+                <p>The biological components established well in the container. The planting records show the moss, ferns, and carnivorous plants maintaining healthy condition under the automated humidity control. The turtle has adapted to the environment, using the 3D-printed shelter and the provided basking areas.</p>
+                <p>The project was completed and demonstrated as part of our Manufacturing Engineering Experience course. The system performed as designed during the exhibition, maintaining stable environmental conditions throughout the display period.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>What I Learned</h2>
+                <p>This project taught me that the gap between a working prototype and a reliable product is often wider than it appears. The humidifier-sensor interference issue was not something we had anticipated in the design phase, and resolving it required me to think in terms of physical airflow patterns, not just code. I learned that environmental sensing in a real system involves managing the sensor's relationship with its surroundings—placement and shielding matter as much as the sensor specification.</p>
+                <p>The debugging process reinforced the value of systematic troubleshooting. Rather than immediately replacing components, I learned to isolate variables: testing the sensor in open air, observing the mist pattern, adding physical barriers, and only then implementing software safeguards. This layered approach—physical first, then software—produced a more robust solution than either alone would have.</p>
+                <p>Working with a team taught me the importance of interface definition. The biologists needed to know what humidity range the system could maintain; I needed to know the physical constraints of the planting layout. By establishing clear specifications early—temperature range 15–28°C, humidity 40–90%, indirect light—we could work in parallel with confidence that our components would integrate successfully.</p>
+                <p>The project also gave me perspective on what "smart" really means. A truly smart system is not one with many features, but one that reduces the user's cognitive load. Our automatic humidity control eliminated the need for users to think about watering schedules or monitor conditions. That simplicity, achieved through careful engineering behind the scenes, is what makes a system genuinely intelligent.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>More Details</h2>
+                <p>For full technical documentation, see <a href="Manual.pdf" style="color: rgba(255,255,255,0.9); text-decoration: underline;">link to PDF</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+            easing: 'ease-out-cubic'
+        });
+    </script>
+</body>
+</html>

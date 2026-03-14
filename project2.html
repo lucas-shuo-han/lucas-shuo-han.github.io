@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wren Mating System Modeling | Lucas Shuo Han</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(12px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-brand {
+            font-weight: 500;
+            font-size: 1.2rem;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        /* Hero Section with Fixed Background */
+        .hero {
+            min-height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                              url('background2.jpg');
+            background-position: center 30%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;  /* 关键：背景固定 */
+            display: flex;
+            align-items: center;
+            padding: 6rem 5% 2rem;
+        }
+
+        /* Glass Card */
+        .glass-card {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 2.5rem;
+            max-width: 850px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .project-subtitle {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .content-section {
+            margin-bottom: 2rem;
+        }
+
+        .content-section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .content-section h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 1.5rem 0 0.75rem;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .content-section h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 1rem 0 0.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .content-section p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 1rem;
+        }
+
+        .content-section ul {
+            margin: 0.75rem 0 1rem 1.5rem;
+        }
+
+        .content-section li {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 0.5rem;
+        }
+
+        .content-section strong {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .content-section em {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .formula {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .code-block {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin: 1rem 0;
+            white-space: pre-wrap;
+            line-height: 1.5;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        th {
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        td {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #fff;
+        }
+
+        .back-link::before {
+            content: '←';
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                margin-top: 0.5rem;
+            }
+
+            .hero {
+                padding: 5rem 1rem 2rem;
+            }
+
+            .glass-card {
+                padding: 1.5rem;
+                max-width: 100%;
+            }
+
+            .project-title {
+                font-size: 1.5rem;
+            }
+
+            .content-section h2 {
+                font-size: 1.3rem;
+            }
+
+            table {
+                font-size: 0.8rem;
+            }
+
+            th, td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">Lucas Han</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="research.html">Exploration</a></li>
+            <li><a href="#">Resume</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="glass-card" data-aos="fade-up" data-aos-duration="800">
+            <a href="projects.html" class="back-link">Back to Projects</a>
+            
+            <h1 class="project-title">Wren Mating System Modeling Project</h1>
+            <p class="project-subtitle">A grid-based agent model exploring mating system evolution through energy budget abstraction and game theory.</p>
+
+            <div class="content-section">
+                <h2>The Vision: Why Model Mating Systems This Way?</h2>
+                <p>Mating systems—whether monogamy, polyandry, or polygyny—emerge from millions of individual decisions: Should a female accept a second male? Should a male guard one nest or seek another? Should a bird abandon a failing territory or invest more? Traditional models approach these as discrete choices, requiring complex conditional trees with dozens of parameters that quickly become intractable.</p>
+                <p>This project takes a different path. Instead of enumerating behaviors, we ask: <em>What is the fundamental currency underlying all reproductive decisions?</em></p>
+                <p>The answer is <strong>energy</strong>. Time and effort invested in one activity cannot be allocated elsewhere. A female cannot simultaneously guard her nest and search for new mates; a male cannot provision two nests with full intensity. This insight leads to our core abstraction: <strong>all reproductive behaviors reduce to a single continuous variable—energy budget allocation.</strong></p>
+                <p>By compressing a dozen discrete behaviors (mate acceptance, nest abandonment, parental care, territory adjustment) into one continuous vector, we achieve three things:</p>
+                <ol style="margin-left: 1.5rem; color: rgba(255,255,255,0.85); line-height: 1.7;">
+                    <li><strong>Computational efficiency</strong>: Exponential reduction in parameter space</li>
+                    <li><strong>Biological fidelity</strong>: Captures the true limiting factor (energy) rather than surface behaviors</li>
+                    <li><strong>Generalizability</strong>: The framework applies to any organism facing time/energy constraints, not just wrens</li>
+                </ol>
+                <p>The environment is modeled using a <strong>negative binomial distribution</strong> for resource generation, which directly parameterizes both total resource abundance and spatial aggregation—two key drivers of mating system evolution identified in the literature. This replaces arbitrary patch parameters with a mathematically tractable, statistically grounded alternative.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>The Framework: A Game-Theoretic Formalization</h2>
+                <p>The model is formally structured as a game with four pillars: players, strategies, payoffs, and information.</p>
+
+                <h3>1. Players: Individuals with Energy Budgets</h3>
+                <p>Agents are instantiated as female or male individuals, each occupying a position on a 500×500 grid. Every agent faces the same fundamental constraint:</p>
+                <div class="formula">search_share + Σ raising_share<sub>k</sub> = 1.0</div>
+                <p>Where <strong>search_share</strong> quantifies investment in exploring unknown mates and territories, and <strong>raising_share</strong> quantifies investment in consolidating current reproductive units. This budget constraint reflects biological reality: energy is the true limiting factor in reproductive decisions.</p>
+
+                <h3>2. Strategies: One Variable, Many Behaviors</h3>
+                <p>All surface behaviors collapse into the <strong>raising_share vector</strong>. This is the key insight that compresses complexity:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Behavior</th>
+                            <th>Raising Share Representation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Monogamy vs. Polyandry</strong></td>
+                            <td>Single-element vs. multi-element raising_share vector</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nest Abandonment</strong></td>
+                            <td>raising_share<sub>k</sub> = 0 for a given nest</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Territory Size Adjustment</strong></td>
+                            <td>Home range radius as a function of total raising_share allocated</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mate Acceptance/Rejection</strong></td>
+                            <td>Male's raising_share in a nest > 0 (accepted) or = 0 (rejected)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Parental Care Intensity</strong></td>
+                            <td>Directly reflected in the numerical value of raising_share</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>This abstraction captures the "energy limitation" as the primary biological constraint. Trade-offs between behaviors are automatically correct without manual encoding of interactions.</p>
+
+                <h3>3. Payoffs: From Resources to Fitness</h3>
+                <p>Reproductive success follows a three-stage mapping:</p>
+                <p><strong>Stage 1: Resource Extraction</strong></p>
+                <p>For each nest k, aggregate all participants' total investment and calculate actual acquired resources:</p>
+                <div class="formula">R<sub>total,k</sub> = extract(Σ raising_share<sub>k</sub>, position<sub>k</sub>, resource_map)</div>
+                <p>Extraction follows distance-dependent costs—the farther from the nest center, the higher the extraction cost.</p>
+                <p><strong>Stage 2: Logistic Conversion</strong></p>
+                <p>Map total resources to expected surviving offspring:</p>
+                <div class="formula">fledglings<sub>k</sub> = K / (1 + exp{-r · (R<sub>total,k</sub> - R<sub>0</sub>)})</div>
+                <p>The S-shaped curve embodies: (1) diminishing marginal utility as resources saturate, (2) base mortality below threshold R₀, and (3) biological plausibility consistent with field data (Davies 1986).</p>
+                <p><strong>Stage 3: Payoff Allocation</strong></p>
+                <ul>
+                    <li><strong>Female payoff</strong>: Sum of fledglings across all owned nests (minus egg-laying cost)
+                        <div class="formula">payoff<sub>female</sub> = Σ fledglings<sub>k</sub> - c<sub>egg</sub></div>
+                    </li>
+                    <li><strong>Male payoff</strong>: Paternity allocated proportionally by raising_share investment
+                        <div class="formula">payoff<sub>male</sub> = Σ (raising_share<sub>male,k</sub> / Σ raising_share<sub>k</sub> × fledglings<sub>k</sub>)</div>
+                    </li>
+                </ul>
+
+                <h3>4. Information: Bounded Rationality in Action</h3>
+                <p>Wild animals cannot engage in infinite recursive reasoning about conspecifics' strategies, nor can they instantaneously survey entire landscapes. The model addresses this through a parsimonious <strong>two-tiered information structure</strong>:</p>
+                <p><strong>Free Information</strong>: Global awareness of nest locations—an abstraction of territorial song, movement patterns, and spatial memory accumulated over weeks of ranging.</p>
+                <p><strong>Costly Information</strong>: Detailed knowledge of nest composition (male/female roster, reproductive status) scales as an exponential decay function of distance and search investment:</p>
+                <div class="formula">p<sub>i</sub> = 1 - exp(-λ · search_share / d<sub>i</sub>)</div>
+                <p>Where λ is the <strong>search efficiency constant</strong>, encoding vegetation density and predation risk. This parameter has direct empirical grounding: when simulating high food abundance (increasing λ via supplemental feeding), optimal search_share declines, female ranges contract, and the mating system shifts toward monogamy and polygyny—precisely matching the experimental manipulation in <strong>Davies & Lundberg (1984)</strong>. Conversely, low λ values generate expansive female ranges and frequent polyandry, capturing natural variation across habitat types.</p>
+                <p>Agents form beliefs about population-level frequencies through <strong>Bayesian social learning</strong>—observing neighbor strategies and payoffs, then updating beliefs via naive Bayes. This avoids the infinite recursion problem of classical game theory: agents ask "What is the expected value of searching given population-level frequencies?" rather than "How will opponent X respond?"</p>
+            </div>
+
+            <div class="content-section">
+                <h2>My Role: Building the Strategic Core</h2>
+                <p>As the lead developer of the strategy layer, I designed and implemented the entire decision-making architecture. My contributions include:</p>
+
+                <h3>Core Algorithm Design</h3>
+                <p><strong>Raising Share Allocation</strong>: Implemented a greedy iterative optimization algorithm that allocates energy budget across nests based on marginal expected utility. At each step, the algorithm calculates marginal utility for each nest using numerical differentiation:</p>
+                <div class="formula">MU<sub>k</sub>(r<sub>k</sub>) = [ℱ(r<sub>k</sub> + ô<sub>k</sub> + Δ, p<sub>k</sub>) - ℱ(r<sub>k</sub> + ô<sub>k</sub>, p<sub>k</sub>)] / Δ</div>
+                <p>The algorithm iteratively allocates budget increments to the nest with highest marginal utility until the budget is exhausted, then normalizes to ensure constraint satisfaction. This approach prioritizes biological plausibility over mathematical optimality—future versions could substitute ML or genetic algorithms without architectural changes.</p>
+                <p><strong>Bayesian Belief System</strong>: Designed the social learning framework where agents update search_share beliefs based on observed same-sex individuals' strategies and payoffs. The update mechanism uses descriptive statistics (average performance of neighbors) as likelihood and the agent's current belief as prior, producing a posterior that automatically contracts toward successful experience.</p>
+
+                <h3>Code Architecture</h3>
+                <p>I architected a clean, layered design with clear separation of concerns:</p>
+                <div class="code-block">World Layer       → Environment generation and state management
+Agent Layer       → State entities (no decision logic)
+Strategy Layer    → Decision algorithms (pluggable)
+Simulation Layer  → Execution coordination</div>
+                <p>Key architectural decisions:</p>
+                <ul>
+                    <li><strong>Agent-Strategy decoupling</strong>: Strategies are hot-swappable without modifying Agent code, enabling "plug-and-play" experimental design</li>
+                    <li><strong>Pure function interfaces</strong>: Strategies implement <code>decide(...) → allocation</code>, enabling unit testing with mock data and batch parallelization</li>
+                    <li><strong>Strong state consistency</strong>: Centralized management of cross-entity updates eliminates race conditions</li>
+                    <li><strong>100% external configuration</strong>: All parameters live in <code>config/config.py</code>; no hard-coded values</li>
+                </ul>
+
+                <h3>Biological Grounding</h3>
+                <p>I ensured the model maps to empirical literature:</p>
+                <ul>
+                    <li>The λ parameter directly corresponds to experimental manipulations in Davies & Lundberg (1984)</li>
+                    <li>The logistic conversion parameters align with field data on Dunnock reproductive success (Davies 1986)</li>
+                    <li>The paternity allocation assumption is grounded in behavioral ecology literature (Davies 1992)</li>
+                </ul>
+
+                <h3>Team Integration</h3>
+                <p>The codebase is designed with clear interfaces for collaboration:</p>
+                <ul>
+                    <li>Standardized data output formats for analysis modules</li>
+                    <li>Reporter module interface for team members' visualization tools</li>
+                    <li>Type-hinted contracts that make model assumptions explicit</li>
+                </ul>
+                <p>While this is my independent contribution, it is built to work within a larger ecosystem—other team members' analysis tools can plug in seamlessly.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Outcome: A Clean, Extensible Codebase</h2>
+                <p>The final deliverable is a complete, runnable Python package with the following characteristics:</p>
+                <p><strong>Engineering Quality</strong></p>
+                <ul>
+                    <li>Fully type-hinted function signatures</li>
+                    <li>PEP 8 compliant throughout</li>
+                    <li>Comprehensive docstrings</li>
+                    <li>No hard-coded parameters—all configuration externalized</li>
+                </ul>
+                <p><strong>Extensibility</strong></p>
+                <ul>
+                    <li>Strategy modules can be hot-swapped without modifying Agent code</li>
+                    <li>Future refinements (sex-specific detection abilities, habitat-dependent λ values) integrate without rearchitecting</li>
+                    <li>Support for future strategy elimination mechanisms based on fitness thresholds</li>
+                    <li>Alternative optimization criteria (risk aversion, kin selection) can be substituted without redesign</li>
+                </ul>
+                <p><strong>Testability</strong></p>
+                <ul>
+                    <li>Strategy designed as pure function interface</li>
+                    <li>Unit tests bypass Agent instances, directly verifying decision logic with mock data</li>
+                    <li>Separation of concerns enables focused test coverage</li>
+                </ul>
+                <p><strong>Performance</strong></p>
+                <ul>
+                    <li>Computational complexity: O(N) per round (reduced from O(N!))</li>
+                    <li>Stateless Strategies allow batch parallelization without write conflicts</li>
+                    <li>Large-scale simulations feasible on standard hardware</li>
+                </ul>
+                <p>The repository includes debug logs as sample output, demonstrating the simulation's step-by-step execution and state transitions.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>More Details</h2>
+                <p><strong>GitHub Repository</strong>: <a href="https://github.com/lucas-shuo-han/BreedShare" target="_blank" rel="noopener noreferrer" style="color: rgba(255,255,255,0.9); text-decoration: underline;">https://github.com/lucas-shuo-han/BreedShare.git</a></p>
+                <p>The repository contains:</p>
+                <ul>
+                    <li>Complete source code with modular architecture</li>
+                    <li>Configuration system for parameter exploration</li>
+                    <li>Debug logs demonstrating sample runs</li>
+                    <li>Documentation of future extension paths (risk aversion, individual heterogeneity, genetic algorithm-based strategies)</li>
+                    <li>Instructions for running simulations and extending the framework</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <p style="font-style: italic; color: rgba(255,255,255,0.7);">This project demonstrates that elegant modeling—compressing complex biological phenomena into minimal, mathematically tractable abstractions—can yield both computational efficiency and deeper theoretical insight. The energy budget framework is not a simplification that sacrifices realism; it is a principled abstraction that captures the fundamental constraint governing all reproductive decisions.</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+            easing: 'ease-out-cubic'
+        });
+    </script>
+</body>
+</html>
